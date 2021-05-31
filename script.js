@@ -1,7 +1,7 @@
 
 const button = document.querySelector("#add-button");
 
-const addNewNote = (text = "jugesh") => {
+const addNewNote = (text = "") => {
     const container = document.createElement('div');
     container.classList.add("container");
     const htmlData = `
@@ -29,11 +29,17 @@ const addNewNote = (text = "jugesh") => {
     });
 
     //edit the note
+    textarea.value=text;
+    main.innerHTML=text;
+
     editButton.addEventListener("click", () => {
         main.classList.toggle("hidden");
         textarea.classList.toggle("hidden");
     });
 
+    textarea.addEventListener('change',(event)=>{
+      const value = event.target.value;
+    })
    
     document.body.appendChild(container);
 }
