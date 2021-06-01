@@ -10,8 +10,8 @@ const addNewNote = (text = "") => {
             <button id="delete-button"><i class="fas fa-trash-alt"></i></button>    
     </div>
 
-        <div class="main ${text ? "" : "hidden"}"></div>
-        <textarea class= "${text ? "" : "hidden"}"></textarea>
+        <div class="main ${text ? "hidden" : ""}"></div>
+        <textarea class= "${text ? "" : "hidden"}" placeholder="Add your note..."></textarea>
     
     `
   
@@ -28,9 +28,8 @@ const addNewNote = (text = "") => {
         container.remove();
     });
 
-    //edit the note
-    textarea.value=text;
-    main.innerHTML=text;
+    //toggle using edit button
+   
 
     editButton.addEventListener("click", () => {
         main.classList.toggle("hidden");
@@ -39,7 +38,11 @@ const addNewNote = (text = "") => {
 
     textarea.addEventListener('change',(event)=>{
       const value = event.target.value;
-    })
+      textarea.value=value;
+      main.innerHTML=value;
+    });
+
+ 
    
     document.body.appendChild(container);
 }
