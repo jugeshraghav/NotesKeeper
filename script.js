@@ -58,7 +58,6 @@ const addNewNote = (text = "") => {
     document.body.appendChild(container);
 }
 
-const no
 
 //add new note
 button.addEventListener("click", addNewNote);
