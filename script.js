@@ -1,6 +1,15 @@
 
 const button = document.querySelector("#add-button");
 
+const updateLSdata = ()=>{
+    const textareaData = document.querySelectorAll("textarea");
+    const LSnotes=[];
+    textareaData.forEach((element)=>{
+        return LSnotes.push(element.value);
+    });
+    localStorage.setItem("LSnotes",JSON.stringify(LSnotes));
+}
+
 const addNewNote = (text = "") => {
     const container = document.createElement('div');
     container.classList.add("container");
@@ -40,12 +49,16 @@ const addNewNote = (text = "") => {
       const value = event.target.value;
       textarea.value=value;
       main.innerHTML=value;
+
+      updateLSdata();
     });
 
  
    
     document.body.appendChild(container);
 }
+
+const no
 
 //add new note
 button.addEventListener("click", addNewNote);
