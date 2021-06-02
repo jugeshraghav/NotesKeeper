@@ -58,7 +58,17 @@ const addNewNote = (text = "") => {
     document.body.appendChild(container);
 }
 
+//getting data back from local storage
+
+const notesFromLS = JSON.parse(localStorage.getItem("LSnotes"));
+if(notesFromLS){
+  notesFromLS.forEach((element)=>{
+      addNewNote(element);
+  });
+};
+// console.log(notesFromLS);
 
 //add new note
 button.addEventListener("click", addNewNote);
+
 
