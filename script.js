@@ -38,7 +38,8 @@ const addNewNote = (text = "") => {
     });
 
     //toggle using edit button
-   
+    textarea.value=text;
+    main.innerHTML=text;
 
     editButton.addEventListener("click", () => {
         main.classList.toggle("hidden");
@@ -61,7 +62,7 @@ const addNewNote = (text = "") => {
 //getting data back from local storage
 
 const notesFromLS = JSON.parse(localStorage.getItem("LSnotes"));
-if(notesFromLS){
+if(notesFromLS!=""){
   notesFromLS.forEach((element)=>{
       addNewNote(element);
   });
